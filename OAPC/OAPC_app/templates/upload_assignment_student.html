@@ -1,0 +1,355 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Upload_Assignment_Student</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="static/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <style type="text/css">
+        .a label{color: black;}
+        .a{margin-left: 300px;background-color: rgb(137, 205, 255);
+            padding: 30px;padding-right: 0px;
+            margin-right: 240px;}
+        .x{background-color: rgb(137, 205, 255);
+         padding: 30px;}
+        .x label{color: black;}
+        .y{background-color: rgb(137, 205, 255);
+         padding: 30px;}
+        .y label{color: black;}
+        .hidden{display: none;}
+        .dark{display:none;}
+        #tab{margin-left: 200px;
+            width: auto;
+            color: black;}
+    </style>
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Student</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'b_home_student' %}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Home</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Functions
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{% url 'd_upload_assignment_student' %}">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Upload Assignment</span>
+                </a>
+            </li>
+
+            
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'g_check_plagiarism_student' %}">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Check Plagiarism</span></a>
+            </li>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow bg-gradient-primary">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-info" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <button class="btn btn-danger" type="button" id="logout" data-toggle="modal" data-target="#logoutModal">Logout</button>
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div>
+                        <h2 style="text-align: center;color:black;"><b><u>Upload Assignment</u></b></h2><br><br>
+                        <div class="x">
+                            <div class="form-group">
+                                <label style="color: black; margin-left: 350px;" for="id10" class="control-label col-sm-5">Subject Name :</label>
+                                <select id="id10" class="form-control col-sm-2" style="font-size: 13px; padding-top: 4px;margin-left: 500px; margin-top: -40px;">
+                                </select><br>
+                                <button style="margin-left: 500px;" type="button" id="b10" class="btn btn-success">Next</button>
+                            </div>
+                        </div>
+                         <div class="y hidden">
+                            <div class="form-group">
+                                <label style="color: black; margin-left: 350px;" for="id11" class="control-label col-sm-5">Topic Name :</label>
+                                <select id="id11" class="form-control col-sm-2" style="font-size: 13px; padding-top: 4px;margin-left: 500px; margin-top: -40px;">
+                                </select><br>
+                                <button style="margin-left: 500px;" type="button" id="b11" class="btn btn-success">Next</button>
+                            </div>
+                        </div>
+
+                        <div class="a hidden">
+                            
+                            <form action="{% url 'upload_assignment' %}" method="POST" name="myform" enctype="multipart/form-data" onsubmit="alert('Assignment Uploaded Successfuly');">{% csrf_token %}
+                                <table id="tab" class="table table-bordered">
+                                </table><br>
+                                <label for="f_upload"><b>Choose file:</b></label>
+                                <input type="file" name="f_upload" required="" style="margin-left: 55px;"><br><br>
+                                <input type="submit" name="sub" class="btn btn-primary" style="margin-left: 142px;"><br><br>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="bg-gradient-primary" >
+                <div class="container" style="height: 30px;">
+                    <div class="copyright text-center" style="color:white;">
+                        <span>Contact us</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="{% url 'display_login' %}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="static/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="static/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="static/js/demo/chart-area-demo.js"></script>
+    <script src="static/js/demo/chart-pie-demo.js"></script>
+
+
+    <script  type="text/javascript">
+        $(document).ready(function(){
+
+            $.ajax({
+                url:"/subjects/",
+                datatype:"json",
+                success:function(any)
+                {
+                    $("#id10").empty();
+                    $("#id10").append("<option>Select</option>");
+                    for(var i=0;i<any.key.length;i++)
+                    {
+                        $("#id10").append("<option value='"+any.key[i].fields.subject_name+"'>"+any.key[i].fields.subject_name+"</option>")
+                    }
+                }
+            })
+
+            $("#b10").click(function(){
+
+                subject_name=$("#id10").val()
+
+                if (subject_name=='Select')
+                {
+                    alert("fill all fields");
+                }
+                else
+                {
+                    $(".x").addClass("hidden");
+                    $(".y").removeClass("hidden");
+                    $.ajax({
+                        url:"/show_topic_on_subject/",
+                        datatype:"json",
+                        data:{
+                            "sname":subject_name,
+                        },
+                        success:function(any)
+                        {
+                            $("#id11").empty();
+                            $("#id11").append("<option>Select</option>");
+                            for(var i=0;i<any.key.length;i++)
+                            {
+                                $("#id11").append("<option value='"+any.key[i].fields.topic_name+"'>"+any.key[i].fields.topic_name+"</option>")
+                            }
+                        }
+                    })
+                }
+            })
+            $("#b11").click(function(){
+                topic_name=$("#id11").val()
+
+                if (topic_name=='Select')
+                {
+                    alert("fill all fields");
+                }
+                else
+                {
+
+                    $.ajax({
+                        url:"/last_date_on_topic/",
+                        datatype:"json",
+                        data:{
+                            "tname":topic_name,
+                        },
+                        success:function(any)
+                        {
+                            $(".y").addClass("dark");
+                            $(".a").removeClass("hidden");
+
+                            $("#tab").empty()
+                            for(var i=0;i<any.key.length;i++)
+                            {
+                                // alert(topic_name)
+                                var r1=$("<tr/>");
+                                r1.append("<td>Final Date :<input type='hidden' class='class3' name='topic_name' value='"+topic_name+"'</td>")
+                                // r1.append("<td><input type='hidden' class='class3' name='topic_name' value='"+topic_name+"'</td>");
+                                r1.append("<td><input type='hidden' class='class2' name='submission_date' value='"+any.key[i].fields.last_date+"'>"+any.key[i].fields.last_date+"</td>");
+                            $("#tab").append(r1);
+                            }
+                        }
+                    })
+                }
+                
+            })
+        })
+    </script>
+
+</body>
+
+</html>
